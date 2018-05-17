@@ -19,13 +19,13 @@ public class RestApiController {
 ConnectedCities connectedService;
 
 @RequestMapping(method = RequestMethod.GET)
-public ResponseEntity<String> areCitiesConnected(@RequestParam("origin") String origin,
+public String areCitiesConnected(@RequestParam("origin") String origin,
 		@RequestParam("destination") String destination) {
     String response = ConnectedCities.areCitiesConnected(origin, destination);
     if (response == null) {
-        return new ResponseEntity(new CustomErrorType("Service could not return valid result."), HttpStatus.NOT_FOUND);
+        return "Service not able to return valid result. Please check if required two cities are entered.";
     }
-    return new ResponseEntity<String>(response, HttpStatus.OK);
+    return response;
 }
 
 

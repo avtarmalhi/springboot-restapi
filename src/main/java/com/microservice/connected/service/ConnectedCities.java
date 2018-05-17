@@ -23,7 +23,7 @@ public class ConnectedCities {
 	public static String areCitiesConnected(String origin,String destination) {
 		
 		String response = "No";
-		if (origin == null || destination == null) {
+		if (origin == null || destination == null || origin.isEmpty() || destination.isEmpty()) {
 			return null;
 		} else {
 			String city1 = origin;
